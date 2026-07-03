@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Project Pulse</string>
+    <string name="dashboard_title">Dashboard</string>
+    <string name="projects_title">Projects</string>
+    <string name="stats_title">Statistics</string>
+    <string name="project_detail_title">Project Details</string>
+    <string name="add_project">Add project</string>
+    <string name="edit_project">Edit project</string>
+    <string name="add_task">Add task</string>
+    <string name="edit_task">Edit task</string>
+    <string name="delete">Delete</string>
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
+    <string name="name">Name</string>
+    <string name="description">Description</string>
+    <string name="status">Status</string>
+    <string name="hours">Hours</string>
+    <string name="remaining_tasks">Remaining tasks</string>
+    <string name="completion">Completion</string>
+    <string name="no_projects">No projects yet. Add one to get started.</string>
+    <string name="no_tasks">No tasks yet. Add one to get started.</string>
+</resources>
