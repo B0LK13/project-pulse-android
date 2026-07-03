@@ -108,8 +108,21 @@ The workflow strips the local `aapt2FromMavenOverride` line from `gradle.propert
 - `./gradlew assembleDebug` — passes
 - `./gradlew testDebugUnitTest` — passes (`ProjectStatsCalculatorTest`, `GetDashboardStatsUseCaseTest`)
 - `./gradlew lint` — passes
+- `./gradlew connectedDebugAndroidTest` — migration instrumented test (requires connected device)
 - `./auto_verify.sh` — all checks pass
 - `./shizuku_verify.sh debug` — install, launch, monkey stress, upgrade, and crash checks pass
+
+## Room Migrations
+
+The database uses explicit Room migrations. Schema JSON files are exported to `app/schemas/` and committed. When changing the schema:
+
+1. Bump `version` in `ProjectPulseDatabase`.
+2. Add a `Migration` object in `Migrations.kt`.
+3. Register it in `ProjectPulseDatabase` via `addMigrations(*ALL_MIGRATIONS)`.
+4. Run `./gradlew kspDebugKotlin` to generate the new schema JSON.
+5. Add or update the migration test in `app/src/androidTest/java/com/projectpulse/android/data/local/ProjectPulseDatabaseMigrationTest.kt`.
+
+Destructive migration fallback is disabled, so unmapped schema changes will fail fast instead of erasing user data.
 
 ## Notes
 

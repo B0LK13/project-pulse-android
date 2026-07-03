@@ -137,6 +137,7 @@ private fun TaskEntity.toDomain(): Task = Task(
     projectId = projectId,
     title = title,
     isCompleted = isCompleted,
+    priority = priority,
     createdAt = createdAt
 )
 
@@ -145,6 +146,7 @@ private fun Task.toEntity(): TaskEntity = TaskEntity(
     projectId = projectId,
     title = title,
     isCompleted = isCompleted,
+    priority = priority,
     createdAt = createdAt
 )
 

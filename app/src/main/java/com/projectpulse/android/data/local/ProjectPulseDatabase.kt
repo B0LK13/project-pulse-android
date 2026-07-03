@@ -14,9 +14,11 @@ import com.projectpulse.android.data.local.entity.TaskEntity
 import com.projectpulse.android.data.local.entity.TimeLogEntity
 import com.projectpulse.android.domain.model.ProjectStatus
 
+private val ALL_MIGRATIONS = arrayOf(MIGRATION_1_2)
+
 @Database(
     entities = [ProjectEntity::class, TaskEntity::class, TimeLogEntity::class],
-    version = 1,
+    version = 2,
     exportSchema = true
 )
 @TypeConverters(ProjectStatusConverter::class)
@@ -38,7 +40,7 @@ abstract class ProjectPulseDatabase : RoomDatabase() {
                     ProjectPulseDatabase::class.java,
                     DATABASE_NAME
                 )
-                    .fallbackToDestructiveMigration(true)
+                    .addMigrations(*ALL_MIGRATIONS)
                     .build()
                     .also { INSTANCE = it }
             }

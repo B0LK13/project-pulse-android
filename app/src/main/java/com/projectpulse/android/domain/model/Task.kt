@@ -5,5 +5,6 @@ data class Task(
     val projectId: Int,
     val title: String,
     val isCompleted: Boolean = false,
+    val priority: Int = 0,
     val createdAt: Long = System.currentTimeMillis()
 )

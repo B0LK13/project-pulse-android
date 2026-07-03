@@ -3,7 +3,7 @@
 | Field | Value |
 |---|---|
 | **Project** | Project Pulse Android |
-| **Last Updated** | 2026-07-03 09:52 |
+| **Last Updated** | 2026-07-03 10:14 |
 
 ## Entries
 
@@ -32,6 +32,12 @@
 | 2026-07-03 | 2 | Run full quality gates | `./gradlew clean testDebugUnitTest lint assembleDebug --no-daemon` | BUILD SUCCESSFUL; APK at `app/build/outputs/apk/debug/app-debug.apk` | AC-007, M-001-M-003 |
 | 2026-07-03 | 2 | Run autoverify loop | `./auto_verify.sh` | All 5 checks passed; device APK at `/storage/emulated/0/apps/project-pulse-debug.apk` | AC-007, M-001-M-005 |
 | 2026-07-03 | 2 | Run Shizuku verification loop | `./shizuku_verify.sh debug` | All checks passed: install, launch, monkey, upgrade, crash check | AC-007 |
+| 2026-07-03 | 3 | Add task priority column | Modify `TaskEntity` and `Task` domain model | `priority` column added with default 0; mappings updated | AC-006 |
+| 2026-07-03 | 3 | Create Room migration 1→2 | Write `Migrations.kt` with `MIGRATION_1_2` | Migration adds `priority` column with default 0 | AC-006, R-002 |
+| 2026-07-03 | 3 | Bump database version and wire migration | Update `ProjectPulseDatabase` version to 2, remove `fallbackToDestructiveMigration(true)`, call `addMigrations` | No destructive fallback; explicit migration required for schema changes | AC-006, R-002 |
+| 2026-07-03 | 3 | Add Room migration instrumented test | Write `ProjectPulseDatabaseMigrationTest.kt` | Test validates 1→2 migration retains data and adds priority column | AC-006, M-002 |
+| 2026-07-03 | 3 | Commit Room schemas | Update `.gitignore` to keep `app/schemas/`, export v1 and v2 JSON | Schema files committed for migration tests and CI | AC-006 |
+| 2026-07-03 | 3 | Run unit tests, lint, and build | `./gradlew testDebugUnitTest lint assembleDebug --no-daemon` | BUILD SUCCESSFUL; all unit tests and lint pass | AC-007, M-001-M-003 |
 
 ## Decisions Supported
 
