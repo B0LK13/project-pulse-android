@@ -103,12 +103,38 @@ A GitHub Actions workflow (`.github/workflows/ci.yml`) runs on every push and pu
 
 The workflow strips the local `aapt2FromMavenOverride` line from `gradle.properties` so the project builds on standard GitHub-hosted runners.
 
+## Testing
+
+### Unit tests
+
+```bash
+./gradlew testDebugUnitTest
+```
+
+Covers stats use cases with `FakeProjectRepository`.
+
+### Instrumented UI tests
+
+```bash
+./gradlew connectedDebugAndroidTest
+```
+
+Requires a connected device or emulator. Tests run through Hilt and the real app:
+
+- `DashboardScreenTest` — overview stats and navigation to projects
+- `ProjectListScreenTest` — add project and delete project flows
+- `ProjectDetailScreenTest` — project info, add task, and task toggle
+- `NavigationTest` — dashboard → projects → detail → back flow
+- `ProjectPulseDatabaseMigrationTest` — Room 1→2 migration
+
+The test runner is `com.projectpulse.android.HiltTestRunner`.
+
 ## Quality Gates
 
 - `./gradlew assembleDebug` — passes
 - `./gradlew testDebugUnitTest` — passes (`ProjectStatsCalculatorTest`, `GetDashboardStatsUseCaseTest`)
 - `./gradlew lint` — passes
-- `./gradlew connectedDebugAndroidTest` — migration instrumented test (requires connected device)
+- `./gradlew connectedDebugAndroidTest` — instrumented tests (requires connected device)
 - `./auto_verify.sh` — all checks pass
 - `./shizuku_verify.sh debug` — install, launch, monkey stress, upgrade, and crash checks pass
 

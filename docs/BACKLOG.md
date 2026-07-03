@@ -4,7 +4,7 @@
 |---|---|
 | **Project** | Project Pulse Android |
 | **Owner** | Pixel Lab |
-| **Last Updated** | 2026-07-03 10:14 |
+| **Last Updated** | 2026-07-03 10:28 |
 
 ## How to Use
 
@@ -28,6 +28,7 @@ Items are prioritized by ROI. Reorder during every iteration. Items must link to
 | B-012 | Add GetDashboardStatsUseCase unit tests | feature | P1 | done | agent | S | AC-003 | | EV-019 |
 | B-013 | Add GitHub Actions CI workflow | tech-debt | P1 | done | agent | S | AC-007 | | EV-020 |
 | B-014 | Replace destructive Room migration with real migrations | tech-debt | P0 | done | agent | S | AC-006 | R-002 | EV-024-EV-029 |
+| B-015 | Add Compose UI tests for dashboard, list, detail, CRUD, navigation | feature | P0 | done | agent | M | AC-003 | | EV-030-EV-038 |
 
 ## Done Items
 
@@ -47,6 +48,7 @@ Items are prioritized by ROI. Reorder during every iteration. Items must link to
 | B-012 | Add GetDashboardStatsUseCase unit tests | 2026-07-03 | EV-019 |
 | B-013 | Add GitHub Actions CI workflow | 2026-07-03 | EV-020 |
 | B-014 | Replace destructive Room migration with real migrations | 2026-07-03 | EV-024-EV-029 |
+| B-015 | Add Compose UI tests for dashboard, list, detail, CRUD, navigation | 2026-07-03 | EV-030-EV-038 |
 
 ## Icebox
 

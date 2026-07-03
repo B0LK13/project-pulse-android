@@ -3,7 +3,7 @@
 | Field | Value |
 |---|---|
 | **Project** | Project Pulse Android |
-| **Last Updated** | 2026-07-03 10:14 |
+| **Last Updated** | 2026-07-03 10:28 |
 
 ## Entries
 
@@ -38,6 +38,16 @@
 | 2026-07-03 | 3 | Add Room migration instrumented test | Write `ProjectPulseDatabaseMigrationTest.kt` | Test validates 1→2 migration retains data and adds priority column | AC-006, M-002 |
 | 2026-07-03 | 3 | Commit Room schemas | Update `.gitignore` to keep `app/schemas/`, export v1 and v2 JSON | Schema files committed for migration tests and CI | AC-006 |
 | 2026-07-03 | 3 | Run unit tests, lint, and build | `./gradlew testDebugUnitTest lint assembleDebug --no-daemon` | BUILD SUCCESSFUL; all unit tests and lint pass | AC-007, M-001-M-003 |
+| 2026-07-03 | 4 | Write Compose UI tests design doc | Write `docs/superpowers/specs/2026-07-03-compose-ui-tests-design.md` | Design approved via autonomous loop directive | AC-003 |
+| 2026-07-03 | 4 | Add Hilt test runner | Create `HiltTestApplication.kt`, `HiltTestRunner.kt`, update `testInstrumentationRunner` | Instrumented tests use generated Hilt application | AC-003 |
+| 2026-07-03 | 4 | Add Compose test base class | Create `ComposeTestBase.kt` with repository injection and clear/seed helpers | Tests can inject real repository and seed data | AC-003 |
+| 2026-07-03 | 4 | Add dashboard UI test | Create `DashboardScreenTest.kt` | Verifies overview stats and navigation to projects | AC-003 |
+| 2026-07-03 | 4 | Add project list UI tests | Create `ProjectListScreenTest.kt` | Verifies add project and delete project flows | AC-003, AC-005 |
+| 2026-07-03 | 4 | Add project detail UI tests | Create `ProjectDetailScreenTest.kt` | Verifies detail info, add task, and task toggle | AC-003, AC-005 |
+| 2026-07-03 | 4 | Add navigation UI test | Create `NavigationTest.kt` | Verifies dashboard → projects → detail → back flow | AC-001 |
+| 2026-07-03 | 4 | Add checkbox contentDescription | Update `TaskItem` in `ProjectDetailScreen.kt` | Checkbox is findable in Compose UI tests | AC-003 |
+| 2026-07-03 | 4 | Compile instrumented tests | `./gradlew compileDebugAndroidTestKotlin --no-daemon` | BUILD SUCCESSFUL; androidTest sources compile | AC-003, M-002 |
+| 2026-07-03 | 4 | Run unit tests, lint, and build | `./gradlew testDebugUnitTest lint assembleDebug --no-daemon` | BUILD SUCCESSFUL; unit tests, lint, and APK build pass | AC-007, M-001-M-003 |
 
 ## Decisions Supported
 
